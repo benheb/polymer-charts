@@ -1,0 +1,17 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../chart-dependencies.html">
+
+<polymer-element name="chart-component" attributes="id">
+  <template>
+    <link rel="stylesheet" href="../../bower_components/c3/c3.css">
+    <link rel="stylesheet" href="chart-component.css">
+
+    Dataset ID: <span id="counterVal">{{id}}</span><br>
+
+    <div id="chart"></div>
+
+  </template>
+
+  <script src="chart-component.js"></script>
+
+</polymer-element>
