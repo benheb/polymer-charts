@@ -90,10 +90,8 @@
   stroke:#C0C0C0 !important;
   display: none;
 }
-.c3-chart-arc {
-  text {
-    fill:#FEFEFE !important;
-  }
+.c3-chart-arc text {
+  fill:#FEFEFE !important;
 }
 .c3-xgrid-focus {
   fill: none;
@@ -120,10 +118,10 @@
   position: absolute;
   bottom: 2px;
   color:#8C8C8C;
-  &:hover {
-    cursor: pointer;
-    color:#555;
-  }
+}
+#sort-x-axis:hover {
+  cursor: pointer;
+  color:#555;
 }
 #chart-render-error-container {
   width: 50%;
