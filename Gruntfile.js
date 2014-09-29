@@ -246,7 +246,7 @@ module.exports = function (grunt) {
             '!elements/**/*.scss',
             'images/{,*/}*.{webp,gif}',
             'bower_components/**',
-            'data'
+            'data/**'
           ]
         }]
       },
