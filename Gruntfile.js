@@ -60,6 +60,12 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/elements/{,*/}*.{scss,sass}'
         ],
         tasks: ['sass:server', 'autoprefixer:server']
+      },
+      'gh-pages': {
+        options: {
+          base: 'dist'
+        },
+        src: ['**']
       }
     },
     // Compiles Sass to CSS and generates necessary files if requested
