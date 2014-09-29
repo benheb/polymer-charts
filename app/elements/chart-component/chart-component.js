@@ -4,47 +4,42 @@
   Polymer({
 
     ready: function (e) {
-      console.log('create me!') 
+      this.$.ajax.go();
+    },
 
-      var options = {};
-      options.pattern = "rgb(49,130,189)";
-      options.type = "bar";
-      options.oid = "";
-      options.ratio = 0.95;
-      options.regions = [];
-      options.statistics = {};
-      options.type = "esriFieldTypeDouble";
-      options.values = [
-        ["latitude", 10, 5, 40, 10, 50, 10, 30, 40, 20, 10]
-      ];
-      options.xAxis = [
-        "39.10", "39.19", "39.28", "39.37", "39.46",
-        "39.55", "39.64", "39.73", "39.82", "39.91"
-      ];
-      options.xHeight = 75;
-      options.xLabel = "latitude";
-      options.xRotate = 0;
-      options.yLabel = "Count";
+    responseChanged: function(oldValue) {
+      var res = this.response;
+      if ( res !== null ) {
+        var options = res[this.type];
+        this.initChart(options);
+      }
+    },
 
-      var str = JSON.stringify(options);
-      console.log('str', str);
-      this.initChart(options);
+    renderBarChart: function() {
+      this.type = "bar";
+      this.$.ajax.go();
+    },
+
+    renderLineChart: function() {
+      this.type = "line";
+      this.$.ajax.go();
     },
 
     initChart: function(options) {
       var self = this;
-      console.log('make a chart!');
       
+      console.log('options', options);
+
       var chart = c3.generate({
           bindto: self.$.chart,
           padding: {
             top: 0,
-            right: 20,
-            bottom: 0,
-            left: 80
+            right: 40,
+            bottom: 20,
+            left: 60
           },
           data: {
-            type: "bar",
+            type: this.type,
             columns: options.values,
             selection: {
               enabled: true,
