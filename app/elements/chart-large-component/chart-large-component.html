@@ -1,0 +1,64 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="../chart-dependencies.html">
+
+<polymer-element name="chart-large-component" attributes="url,type,attribute">
+  <template>
+    <link rel="stylesheet" href="../../bower_components/c3/c3.css">
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="chart-large-component.css">
+
+    <!-- get count -->
+    <core-ajax
+      id="getCount"
+      name="getCount"
+      url="{{url}}"
+      params='{"where": "1=1","returnCountOnly":"true", "f":"json"}'
+      handleAs="json"
+      on-core-response="{{handleCount}}"></core-ajax>
+
+    <!-- get stats -->
+    <core-ajax
+      id="getStats"
+      name="getStats"
+      url='{{url}}?where=1=1&outStatistics=[{"statisticType": "max", "onStatisticField": "{{attribute}}","outStatisticFieldName": "max"}, {"statisticType": "min", "onStatisticField": "{{attribute}}","outStatisticFieldName": "min"}]&f=json'
+      handleAs="json"
+      on-core-response="{{handleStats}}"></core-ajax>
+
+    <!-- get bin counts -->
+    <core-ajax
+      id="getBin"
+      name="getBin"
+      url='{{url}}?where={{attribute}}>={{startVal}}+AND+{{attribute}}<{{endVal}}&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&distance=&units=esriSRUnit_Meter&outFields=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&returnIdsOnly=false&returnCountOnly=true&returnExtentOnly=false&f=json'
+      handleAs="json"
+      on-core-response="{{handleBins}}"></core-ajax>
+
+    <div class="btn-group">
+      <button type="button" class="btn btn-default" on-click={{renderBarChart}}>Bar Chart</button>
+      <button type="button" class="btn btn-default" on-click={{renderLineChart}}>Line Chart</button>
+    </div>
+
+    <div class="row col-md-12" id="service-stats">
+      <span>Title: Simple Points 5000, Feature Count: {{count}}, Selected Attribute: {{attribute}}, Bin Count: {{bins}}<span>
+    </div>
+
+    <div id="chart">
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+    </div>
+
+    <h4>Markup</h4>
+    <pre id="code-sample" class="prettyprint linenums languague-css">
+      <code>
+      //markup for current chart web component
+      <span><</span><span>chart-dataset-component type="{{type}}" url="{{url}}"</span><span>></span><span><</span><span>chart-dataset-component</span><span>></span>
+      </code>
+    </pre>
+
+  </template>
+
+  <script src="chart-large-component.js"></script>
+
+</polymer-element>
