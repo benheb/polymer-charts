@@ -7,7 +7,8 @@
     "polymer": "Polymer/polymer#^0.4.0",
     "bootstrap": "~3.2.0",
     "d3": "~3.4.11",
-    "c3": "~0.3.0"
+    "c3": "~0.3.0",
+    "lodash": "~2.4.1"
   },
   "devDependencies": {
     "polymer-test-tools": "Polymer/polymer-test-tools#^0.4.0"

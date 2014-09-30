@@ -37,59 +37,15 @@
   <div class="container">
     <h2>Charts Polymer Web Component</h2>
     <div id="nav" class="row col-md-12">
-      <a href="/" class="btn btn-primary btn-xs">Chart JSON</a>
-      <a href="/dataset-example.html" class="btn btn-default btn-xs">Feature Service</a>
+      <a href="/" class="btn btn-default btn-xs">Chart JSON</a>
+      <a href="/dataset-example.html" class="btn btn-primary btn-xs">Feature Service</a>
       <a href="/big-data" class="btn btn-default btn-xs disabled">Large Data</a>
     </div>
     <div class="row col-md-12">
-      <chart-component type="bar" url="data/chart.json"></chart-component>
+      <chart-dataset-component type="bar" url="http://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/USA_Airports/FeatureServer/0/query?where=1%3D1&returnGeometry=false&outFields=*&orderByFields=&f=json&resultOffset=0&resultRecordCount=1000"></chart-dataset-component>
     </div>
     <div class="row col-md-12">
-  <h4>Chart JSON</h4>
-  <pre class="prettyprint linenums languague-css">
-    <code>
-      {
-        "bar": {
-          "type": "bar",
-          "oid": "",
-          "ratio": 0.90,
-          "values": [
-            ["latitude", 10, 5, 40, 10, 50, 10, 30, 40, 20, 10]
-          ],
-          "xAxis": [
-            "39.10", "39.19", "39.28", "39.37", "39.46", "39.55", "39.64", "39.73", "39.82", "39.91"
-          ],
-          "regions": [],
-          "pattern": "rgb(49,130,189)",
-          "statistics": {},
-          "type": "esriFieldTypeDouble",
-          "xHeight": 50,
-          "xRotate": 0,
-          "xLabel": "Latitude",
-          "yLabel": "Count"
-        },
-        "line": {
-          "type": "bar",
-          "oid": "",
-          "ratio": 0.90,
-          "values": [
-            ["latitude", 10, 5, 40, 10, 50, 10, 30, 40, 20, 10]
-          ],
-          "xAxis": [
-            "39.10", "39.19", "39.28", "39.37", "39.46", "39.55", "39.64", "39.73", "39.82", "39.91"
-          ],
-          "regions": [],
-          "pattern": "rgb(49,130,189)",
-          "statistics": {},
-          "type": "esriFieldTypeDouble",
-          "xHeight": 50,
-          "xRotate": 0,
-          "xLabel": "Latitude",
-          "yLabel": "Count"
-        }
-      }
-    </code>
-  </pre>
+  
     </div>
   </div>
 
