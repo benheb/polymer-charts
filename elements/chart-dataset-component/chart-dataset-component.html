@@ -2,11 +2,11 @@
 <link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
 <link rel="import" href="../chart-dependencies.html">
 
-<polymer-element name="chart-component" attributes="url,type">
+<polymer-element name="chart-dataset-component" attributes="url,type">
   <template>
     <link rel="stylesheet" href="../../bower_components/c3/c3.css">
     <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="chart-component.css">
+    <link rel="stylesheet" href="chart-dataset-component.css">
 
     <core-ajax
       id="ajax"
@@ -20,18 +20,23 @@
       <button type="button" class="btn btn-default" on-click={{renderLineChart}}>Line Chart</button>
     </div>
 
+    <div class="row col-md-12" id="service-stats">
+      <span>Title: Airports, Feature Count: {{count}}, Selected Attribute: {{selected}}, Bin Count: {{bins}}<span>
+    </div>
+
+    
     <div id="chart"></div>
 
     <h4>Markup</h4>
     <pre id="code-sample" class="prettyprint linenums languague-css">
       <code>
       //markup for current chart web component
-      <span><</span><span>chart-component type="{{type}}" url="{{url}}"</span><span>></span><span><</span><span>chart-component</span><span>></span>
+      <span><</span><span>chart-dataset-component type="{{type}}" url="{{url}}"</span><span>></span><span><</span><span>chart-dataset-component</span><span>></span>
       </code>
     </pre>
 
   </template>
 
-  <script src="chart-component.js"></script>
+  <script src="chart-dataset-component.js"></script>
 
 </polymer-element>

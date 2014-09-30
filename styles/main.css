@@ -2,3 +2,8 @@ body {
   background: #fafafa;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333; }
+
+#nav {
+  margin-bottom: 15px; }
+  #nav a {
+    margin-right: 3px; }
