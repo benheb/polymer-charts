@@ -1,0 +1,19 @@
+{
+  "chart-example-one": {
+    "values": [
+      ["latitude", 10, 5, 40, 10, 50, 10, 30, 40, 20, 10]
+    ],
+    "xAxis": [
+      "39.10", "39.19", "39.28", "39.37", "39.46", "39.55", "39.64", "39.73", "39.82", "39.91"
+    ],
+    "xLabel": "latitude"
+  },
+  "chart-example-two": {
+    "xLabel": "ELEV",
+    "dataSource": "http://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/USA_Airports/FeatureServer/0/query"
+  },
+  "chart-example-three": {
+    "xLabel": "APPIMPVAL",
+    "dataSource": "http://services1.arcgis.com/OwiQO3QpAXsZqKvZ/arcgis/rest/services/StLouisCountyParcels/FeatureServer/0/query"
+  }
+}

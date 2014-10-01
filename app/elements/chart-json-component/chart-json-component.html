@@ -1,0 +1,123 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="../chart-dependencies.html">
+
+<polymer-element name="chart-json-component" attributes="">
+  <template>
+    <link rel="stylesheet" href="../../bower_components/c3/c3.css">
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="chart-json-component.css">
+
+    <core-ajax
+      id="ajax"
+      name="ajax"
+      url="/data/chart-src.json"
+      handleAs="json"
+      response="{{response}}"></core-ajax>
+
+
+    <!-- get features -->
+    <core-ajax
+      id="getFeatures"
+      name="getFeatures"
+      url="{{url}}"
+      handleAs="json"
+      on-core-response="{{buildOptions}}"></core-ajax>
+
+    <!-- get count --> 
+    <core-ajax
+      id="getCount"
+      name="getCount"
+      url="{{url}}"
+      params='{"where": "1=1","returnCountOnly":"true", "f":"json"}'
+      handleAs="json"
+      on-core-response="{{handleCount}}"></core-ajax>
+
+    <!-- get stats -->
+    <core-ajax
+      id="getStats"
+      name="getStats"
+      url='{{url}}?where=1=1&outStatistics=[{"statisticType": "max", "onStatisticField": "{{attribute}}","outStatisticFieldName": "max"}, {"statisticType": "min", "onStatisticField": "{{attribute}}","outStatisticFieldName": "min"}]&f=json'
+      handleAs="json"
+      on-core-response="{{handleStats}}"></core-ajax>
+
+    <!-- get bin counts -->
+    <core-ajax
+      id="getBin"
+      name="getBin"
+      url='{{url}}?where={{attribute}}>={{startVal}}+AND+{{attribute}}<{{endVal}}&objectIds=&time=&geometry=&geometryType=esriGeometryEnvelope&inSR=&spatialRel=esriSpatialRelIntersects&distance=&units=esriSRUnit_Meter&outFields=&returnGeometry=true&maxAllowableOffset=&geometryPrecision=&outSR=&returnIdsOnly=false&returnCountOnly=true&returnExtentOnly=false&f=json'
+      handleAs="json"
+      on-core-response="{{handleBins}}"></core-ajax>
+
+    <h4>Pre-baked Data Chart JSON</h4>
+    <div id="chart-example-one" class="chart">
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+    </div>
+
+    <pre id="code-sample" class="prettyprint linenums languague-css">
+      <code>
+      //minimum required
+      {
+        "example_one": {
+          "values": [
+            ["latitude", 10, 5, 40, 10, 50, 10, 30, 40, 20, 10]
+          ],
+          "xAxis": [
+            "39.10", "39.19", "39.28", "39.37", "39.46", "39.55", "39.64", "39.73", "39.82", "39.91"
+          ]
+        }
+      }
+      </code>
+    </pre>
+
+    <br />
+    <h4>Chart JSON with dataSource URL (maxRecordCount > features.length)</h4>
+    <div id="chart-example-two" class="chart">
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+    </div>
+
+    <pre id="code-sample" class="prettyprint linenums languague-css">
+      <code>
+      //minumum required
+      {
+        "example_two": {
+          "xLabel": "ELEV",
+          "dataSource": "http://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/USA_Airports/FeatureServer/0/query"
+        }
+      }
+      </code>
+    </pre>
+
+    <br />
+    <h4>Chart JSON with dataSource URL (maxRecordCount < features.length)</h4>
+    <div id="chart-example-three" class="chart">
+      <div class="spinner">
+        <div class="double-bounce1"></div>
+        <div class="double-bounce2"></div>
+      </div>
+    </div>
+
+    <pre id="code-sample" class="prettyprint linenums languague-css">
+      <code>
+      //minumum required
+      {
+        "example_two": {
+          "xLabel": "APPIMPVAL",
+          "dataSource": "http://services1.arcgis.com/OwiQO3QpAXsZqKvZ/arcgis/rest/services/StLouisCountyParcels/FeatureServer/0/query"
+        }
+      }
+      </code>
+    </pre>
+
+
+  </template>
+
+  <script src="chart-json-component.js"></script>
+
+</polymer-element>
