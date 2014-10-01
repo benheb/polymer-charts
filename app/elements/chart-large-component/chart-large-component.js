@@ -16,7 +16,9 @@
     handleCount: function(res) {
       res = res.detail.response;
       this.count = res.count;
+      this.total_count = this.count.toLocaleString();
       this.bins = Math.round(Math.sqrt(this.count));
+      if ( this.bins > 80 ) this.bins = 80;
       this.$.getStats.go();
     },
 
