@@ -195,7 +195,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </div>
 
     <div class="row col-md-12" id="service-stats">
-      <span>Title: Simple Points 5000, Feature Count: {{count}}, Selected Attribute: {{attribute}}, Bin Count: {{bins}}<span>
+      <span>Title: <b>QA_data_customer_stlouis_parcels</b>; Feature Count: <b>{{total_count}}</b>; Selected Attribute: <b>{{attribute}}</b>; Bin Count: <b>{{bins}}</b><span>
     </span></span></div>
 
     <div id="chart">
@@ -209,7 +209,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <pre id="code-sample" class="prettyprint linenums languague-css">
       <code>
       //markup for current chart web component
-      <span><</span><span>chart-dataset-component type="{{type}}" url="{{url}}"</span><span>></span><span><</span><span>chart-dataset-component</span><span>></span>
+      <span><</span><span>chart-dataset-component type="{{type}}" url="{{url}}" attribute="{{attribute}}" </span><span>></span><span><</span><span>chart-dataset-component</span><span>></span>
       </code>
     </pre>
 
