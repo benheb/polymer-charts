@@ -262,7 +262,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <pre id="code-sample" class="prettyprint linenums languague-css">
       <code>
-      //minimum required
+      //predefined x/y values  
+      //chart JSON used to create above, minimum required
       {
         "example_one": {
           "values": [
@@ -287,7 +288,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <pre id="code-sample" class="prettyprint linenums languague-css">
       <code>
-      //minumum required
+      //data source defined, no pre-baked x/y values
+      //dataset has less features than maxRecordCount so we do binning on client
       {
         "example_two": {
           "xLabel": "ELEV",
@@ -308,7 +310,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     <pre id="code-sample" class="prettyprint linenums languague-css">
       <code>
-      //minumum required
+      //data source defined, no pre-baked x/y values
+      //dataset has MORE (300k) features than maxRecordCount so we do binning by making multiple request to REST endpoint
       {
         "example_two": {
           "xLabel": "APPIMPVAL",
