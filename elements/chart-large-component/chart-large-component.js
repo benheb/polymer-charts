@@ -43,6 +43,7 @@
         this.reqs = this.reqs - 1;
         this.$.getBin.go();
       } else {
+        this.values.unshift(this.attribute);
         this.buildOptions();
       }
     },
