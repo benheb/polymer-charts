@@ -1,0 +1,60 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-ajax/core-ajax.html">
+<link rel="import" href="../../bower_components/core-input/core-input.html">
+<link rel="import" href="../../bower_components/core-selector/core-selector.html">
+<link rel="import" href="../chart-dependencies.html">
+
+<polymer-element name="chart-builder-component" attributes="url,type">
+  <template>
+    <link rel="stylesheet" href="../../bower_components/c3/c3.css">
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="chart-builder-component.css">
+
+    <core-ajax
+      id="getAttributes"
+      name="getAttributes"
+      url="{{url}}"
+      handleAs="json"
+      on-core-response="{{onAttributesFetched}}"></core-ajax>
+
+    <div style="width:100%;overflow:hidden"> 
+
+      <div class="form-group">
+        <label for="feature-service-url">Feature Service URL</label>
+        <div class="example">Example: http://services.arcgis.com/P3ePLMYs2RVChkJx/arcgis/rest/services/USA_Airports/FeatureServer/0/</div>
+        <core-input id="urlinput" on-change="{{change}}" type="url" placeholder="enter feature service url"></core-input>
+      </div>
+
+      <div id="attr-container">
+        <div id="attr-header">
+          <h5>Select Attribute</h5>
+          <div class="example">Example: ELEV </div>
+        </div>
+        <div id="attributeList-container">
+          <core-selector id="attributeList" on-core-select="{{selectAttribute}}" valueattr="label" selected="{{selectedAttribute}}">
+          </core-selector>
+        </div>
+      </div>
+      
+      <div id="color-picker-container">
+        <h5>Color Picker</h5>
+        <div class="example">Change color of chart</div>
+        <color-picker on-color-change="{{changeColor}}"></color-picker>
+      </div>
+
+    </div>
+
+    <div class="">
+      <div id="chart">
+        <div class="spinner">
+          <div class="double-bounce1"></div>
+          <div class="double-bounce2"></div>
+        </div>
+      </div>
+    </div>
+
+  </template>
+
+  <script src="chart-builder-component.js"></script>
+
+</polymer-element>
