@@ -1,0 +1,26 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/core-list/core-list.html">
+<link rel="import" href="../chart-dependencies.html">
+
+<polymer-element name="color-picker" attributes="">
+  <template>
+    <link rel="stylesheet" href="../../bower_components/c3/c3.css">
+    <link rel="stylesheet" href="../../bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="color-picker.css">
+
+    <div id="color-list-container">
+      <core-list id="list" data="{{data}}" on-core-activate="{{selectColor}}"">
+        <template>
+          <div class="item {{ {selected: selected} | tokenList }}">
+            <div class="color-swatch" id="{{color}}" style="background:{{color}}"></div>
+          </div>
+        </template>
+      </core-list>
+    </div>
+
+
+  </template>
+
+  <script src="color-picker.js"></script>
+
+</polymer-element>

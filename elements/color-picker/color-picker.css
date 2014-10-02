@@ -1,0 +1,23 @@
+:host {
+  display: block;
+}
+
+#color-list-container {
+  width:170px;
+  height: 260px;
+}
+
+.item {
+  width: 24px;
+  height: 24px;
+  float: left;
+  border: 2px solid #fafafa;
+}
+.item.selected {
+  border:2px solid silver;
+}
+
+.color-swatch {
+  width: 20px;
+  height: 20px;
+}
