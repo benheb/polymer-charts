@@ -31,4 +31,17 @@ Start local server:
 grunt serve
 ```
 
+Deploy:
+
+```bash
+git checkout gh-pages
+```
+
+```bash
+grunt build
+```
+
+```bash
+grunt gh-pages
+```
 
